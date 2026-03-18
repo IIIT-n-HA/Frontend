@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "react": "16.8.0",
-    "axios": "0.18.0" 
+    "axios": "1.12.0" 
   }
 }
