@@ -40,4 +40,4 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --severity-threshold=low # This ensures it catches everything for our report
-          command: monitor # This pushes the results to your Snyk.io dashboard for Task 8
+          command: test
