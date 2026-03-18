@@ -1,15 +1,22 @@
-import React from 'react';
+const express = require('express');
+const app = express();
 
-function App() {
-  // Vulnerability for Task 5: Hardcoded sensitive info
-  const api_key = "AIzaSyB-DUMMY-KEY-12345"; 
-  
-  return (
-    <div>
-      <h1>Security Testing Frontend</h1>
-      <p>This is a dummy app for CI/CD integration.</p>
-    </div>
-  );
-}
+// --- TASK 5 VULNERABILITY (Static) ---
+const DB_PASSWORD = "super_secret_password_999"; 
 
-export default App;
+// --- TASK 6 VULNERABILITY (Dynamic) ---
+// This route makes the Task 5 secret "discoverable" by ZAP
+app.get('/debug-config', (req, res) => {
+    // DANGEROUS: Exposing internal config to the web
+    res.json({
+        status: "running",
+        db_key: DB_PASSWORD // ZAP will flag this as "Sensitive Information Disclosure"
+    });
+});
+
+// Existing XSS route from earlier
+app.get('/search', (req, res) => {
+    res.send(`<h1>Results for: ${req.query.q}</h1>`); 
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
