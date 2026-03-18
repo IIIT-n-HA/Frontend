@@ -25,7 +25,7 @@ jobs:
           args: >
             -Dsonar.projectKey=IIIT-n-HA_Frontend
             -Dsonar.organization=iiit-n-ha
-            -Dsonar.sources=src
+            -Dsonar.sources=.
             -Dsonar.host.url=https://sonarcloud.io
 
       # 2. SNYK Security Scan
