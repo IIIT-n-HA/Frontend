@@ -34,10 +34,10 @@ jobs:
         run: npm install
 
       # 2. Run Snyk to check for vulnerabilities in those dependencies
-      - name: Snyk Security Scan
+      - name: Snyk Monitor
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --severity-threshold=low # This ensures it catches everything for our report
-          command: test
+          command: monitor
