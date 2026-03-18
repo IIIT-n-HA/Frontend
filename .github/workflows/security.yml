@@ -23,8 +23,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=your_actual_project_key
-            -Dsonar.organization=your_sonarcloud_organization_name
+            -Dsonar.projectKey=IIIT-n-HA_Frontend
+            -Dsonar.organization=iiit-n-ha
             -Dsonar.sources=src
             -Dsonar.host.url=https://sonarcloud.io
 
